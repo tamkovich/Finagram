@@ -1,0 +1,7 @@
+app:
+  host: 0.0.0.0
+  port: 5000
+
+  tg:
+    posturi: /tg/fingaram
+    token: 698646418:AAFHH6kiCDQoei7N9TZTgWcy2sKlQm2brRs
