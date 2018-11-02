@@ -14,7 +14,7 @@ def test_create_message():
 
 
 def test_migrate():
-    session
+    # session
     session.commit()
 
 
@@ -30,4 +30,4 @@ def test_clear_tables():
 
 
 if __name__ == '__main__':
-    test_migrate()
+    test_clear_tables()

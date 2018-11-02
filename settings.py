@@ -1,4 +1,3 @@
-from private.parse_config import parse
+from private.parse_config import parse_yaml
 
-config = dict()
-config['app'] = parse('private', 'config.yaml')
+config = parse_yaml('private', 'config.yaml')

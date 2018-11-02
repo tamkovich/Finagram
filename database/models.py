@@ -9,7 +9,7 @@ class UserTg(BaseModel):
     __repr_attrs__ = ['name']
 
     id = sa.Column(sa.Integer, primary_key=True)
-    user_id = sa.Column(sa.String(30), sa.UniqueConstraint)
+    user_id = sa.Column(sa.String(30))
 
     branch = sa.Column(sa.String(30))
     status = sa.Column(sa.Integer)

@@ -18,7 +18,7 @@ def get_answer(branch_name, status, action, content=None):
         for k in c.keys:
             if action == k:
                 return c.process(branch_name, status, content) if content else c.process(branch_name, status, action)
-    return message, "", [], []
+    return (message, "", [], []), branch_name, status
 
 
 def _action_detect(action, data_text):
@@ -40,6 +40,5 @@ def create_answer(data, token, branch_name, status):
 
     args = get_answer(branch_name, status, action, text)
     args, branch_name, status = args[:-2][0], args[-2], args[-1]
-    print(args)
     tg.send_message(user_id, args[0], args[1], args[2], args[3])
     return branch_name, status

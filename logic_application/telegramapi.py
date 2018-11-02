@@ -36,8 +36,6 @@ class Telegram:
 
     def _send_photo(self, user_id, message, file):
         message = message if message else None
-        print('================')
-        self.api.send_chat_action(user_id, 'file load')
-        print('++++++++++++++++')
+        # self.api.send_chat_action(user_id, 'file load')
         with open(file, "rb") as photo:
             self.api.send_photo(user_id, photo, caption=message)

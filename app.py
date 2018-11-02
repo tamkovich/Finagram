@@ -1,6 +1,6 @@
 from flask import Flask, request, json
 
-from database import session
+# from database import session
 from settings import *
 import messageHandler
 
