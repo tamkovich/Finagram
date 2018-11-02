@@ -1,4 +1,6 @@
 from flask import Flask, request, json
+
+from database import session
 from settings import *
 import messageHandler
 
@@ -15,6 +17,7 @@ def hello_world():
 def telegram():
     data = json.loads(request.data)
     if data.get("message"):
+
         global branch_name, status
         branch_name, status = messageHandler.create_answer(
             data["message"], config['app']['tg']['token'],

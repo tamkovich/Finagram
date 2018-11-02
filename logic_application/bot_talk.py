@@ -14,8 +14,7 @@ class Branch:
         "dec5": f"{FILES_FOLDER}dec5_text.json",
         "licvidation": f"{FILES_FOLDER}licvidation_text.json",
         "regip": f"{FILES_FOLDER}regip_text.json",
-        "taxsystem": f"{FILES_FOLDER}tax_systems_res.json",
-        # "5": f"{FILES_FOLDER}tax_system_text.json",
+        "taxsystem": f"{FILES_FOLDER}tax_systems.json",
     }
 
     def __init__(self, branch_name, status):
