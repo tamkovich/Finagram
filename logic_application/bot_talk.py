@@ -14,7 +14,7 @@ class Branch:
         "dec5": f"{FILES_FOLDER}dec5_text.json",
         "licvidation": f"{FILES_FOLDER}licvidation_text.json",
         "regip": f"{FILES_FOLDER}regip_text.json",
-        "taxsystem": f"{FILES_FOLDER}tax_systems.json",
+        "taxsystem": f"{FILES_FOLDER}tax_systems2.json",
     }
 
     def __init__(self, branch_name, status):
@@ -24,7 +24,7 @@ class Branch:
 
     def load_branch(self, branch_name):
         """
-        :param branch_name: name of the branch in bot speech
+        :param branch_name: <str> name of the branch in bot speech
         :return: dict()-data with content of file for specific branch
         """
         filename = self.files[branch_name]

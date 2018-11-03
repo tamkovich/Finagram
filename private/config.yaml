@@ -3,5 +3,5 @@ app:
   port: 5226
 
   tg:
-    posturi: /tg/fingaram
+    posturi: /tg/finagram
     token: 698646418:AAFHH6kiCDQoei7N9TZTgWcy2sKlQm2brRs
