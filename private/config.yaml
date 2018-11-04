@@ -1,7 +1,0 @@
-app:
-  host: 0.0.0.0
-  port: 5226
-
-  tg:
-    posturi: /tg/finagram
-    token: 698646418:AAFHH6kiCDQoei7N9TZTgWcy2sKlQm2brRs
