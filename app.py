@@ -1,11 +1,10 @@
 from flask import Flask, request, json
 
-# from database import session
+from logic_application.database import push_database, update_user_state
 from settings import *
 import messageHandler
 
 app = Flask(__name__)
-branch_name, status = None, None
 
 
 @app.route("/")
@@ -17,11 +16,15 @@ def hello_world():
 def telegram():
     data = json.loads(request.data)
     if data.get("message"):
-
-        global branch_name, status
+        branch_name, status = push_database(data["message"])
         branch_name, status = messageHandler.create_answer(
             data["message"], config['app']['tg']['token'],
-            branch_name, status,
+            branch_name, str(status),
+        )
+        update_user_state(
+            branch=branch_name,
+            status=status,
+            user_id=data["message"]["chat"]["id"]
         )
         return "ok"
     return "nothing"
