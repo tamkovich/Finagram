@@ -14,10 +14,12 @@ class Branch:
         "dec5": f"{FILES_FOLDER}dec5_text.json",
         "licvidation": f"{FILES_FOLDER}licvidation_text.json",
         "regip": f"{FILES_FOLDER}regip_text.json",
-        "taxsystem": f"{FILES_FOLDER}tax_systems2.json",
+        "taxsystem": f"{FILES_FOLDER}tax_systems.json",
+        "errors": f"{FILES_FOLDER}errors.json"
     }
 
     def __init__(self, branch_name, status):
+        branch_name, status = (branch_name, status) if branch_name else ("errors", "0")
         self.data = self.load_branch(branch_name)
         self.status = status
         self.step = None
@@ -39,13 +41,15 @@ class Branch:
         :return: None
         """
         assert self.step, 'You have to generate step firstly. Use Branch.gen_step()'
-        key = self.step['buttons'][answer]
+        key = self.step['buttons'].get(answer)
         if key == '-':
             self.status = str(int(self.status) + 1)
         elif key == '-1':
             self.status = 0
         elif key == '+':
             self.__init__(self.step['switch'], "0")
+        elif key is None:
+            self.__init__(None, None)
         else:
             self.status = key
 
