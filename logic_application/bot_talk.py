@@ -44,6 +44,8 @@ class Branch:
             self.status = str(int(self.status) + 1)
         elif key == '-1':
             self.status = 0
+        elif key == '+':
+            self.__init__(self.step['switch'], "0")
         else:
             self.status = key
 

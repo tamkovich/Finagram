@@ -27,8 +27,8 @@ def create_user(**kwargs) -> bool:
         session.commit()
         return user
     except sa.exc.IntegrityError as _er:
-        print(f'Problem with `.commit()` or `.create()`. '
-              f'There can be errors with your rows. Exception description {_er}')
+        # print(f'Problem with `.commit()` or `.create()`. '
+        #       f'There can be errors with your rows. Exception description {_er}')
         session.rollback()
         return None
 

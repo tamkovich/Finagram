@@ -61,4 +61,4 @@ def test_clear_tables():
 
 
 if __name__ == '__main__':
-    test_clear_tables()
+    test_create_user()
