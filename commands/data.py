@@ -17,7 +17,7 @@ data_command.keys = [
     "По собственной инициативе",         # licvidation_text
     "В связи с бездействием",            # licvidation_text
     "Да", "Нет",                         # licvidation_text
-    "К системе налогооблажения",         # regip_text
+    # "К системе налогооблажения",         # regip_text
 ]
 data_command.description = "Консультация от Бота"
 data_command.process = data
