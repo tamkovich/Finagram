@@ -1,10 +1,17 @@
+from sentry_sdk.integrations.flask import FlaskIntegration
 from flask import Flask, request, json
+import sentry_sdk
 
 from logic_application.database import push_database, update_user_state
 from settings import *
 import messageHandler
 
 app = Flask(__name__)
+
+sentry_sdk.init(
+    dsn=config['sentry']['dsn'],
+    integrations=[FlaskIntegration()]
+)
 
 
 @app.route("/")
