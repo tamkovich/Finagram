@@ -18,6 +18,10 @@ data_command.keys = [
     "В связи с бездействием",            # licvidation_text
     "Да", "Нет",                         # licvidation_text
     # "К системе налогооблажения",         # regip_text
+    "Разработка ПО",                     # taxsystem
+    "Дизайн",                            # taxsystem
+    "SEO, продвижение",                  # taxsystem
+    "Только разработка сайтов"           # taxsystem
 ]
 data_command.description = "Консультация от Бота"
 data_command.process = data
