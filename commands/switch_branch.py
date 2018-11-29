@@ -2,7 +2,7 @@ from logic_application.bot_talk import HELP_VARS, Branch
 import command_system
 
 
-def start(_branch_name, _status, msg):
+def start(_branch_name, _status, msg, *args, **kwargs):
     branch_name = HELP_VARS[msg]
     branch = Branch(branch_name, "0")
     branch.gen_step()

@@ -24,3 +24,25 @@ class Message(BaseModel):
     usertg_id = sa.Column(sa.Integer, sa.ForeignKey('usertg.id'))
 
     usertg = sa.orm.relationship('UserTg', backref='messages')
+
+
+class Reveiw(BaseModel):
+    __tablename__ = 'review'
+    __repr_attrs__ = ['body', 'usertg']
+
+    id = sa.Column(sa.Integer, primary_key=True)
+    body = sa.Column(sa.String(500))
+    usertg_id = sa.Column(sa.Integer, sa.ForeignKey('usertg.id'))
+
+    usertg = sa.orm.relationship('UserTg', backref='reviews')
+
+
+class Consultation(BaseModel):
+    __tablename__ = 'consultation'
+    __repr_attrs__ = ['body', 'usertg']
+
+    id = sa.Column(sa.Integer, primary_key=True)
+    body = sa.Column(sa.String(500))
+    usertg_id = sa.Column(sa.Integer, sa.ForeignKey('usertg.id'))
+
+    usertg = sa.orm.relationship('UserTg', backref='consultations')

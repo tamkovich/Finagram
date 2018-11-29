@@ -2,7 +2,7 @@ from logic_application.bot_talk import Branch
 import command_system
 
 
-def data(branch_name, status, msg):
+def data(branch_name, status, msg, *args, **kwargs):
     branch = Branch(branch_name, status)
     branch.gen_step()
     branch.update_status(msg)
@@ -25,5 +25,3 @@ data_command.keys = [
 ]
 data_command.description = "Консультация от Бота"
 data_command.process = data
-
-

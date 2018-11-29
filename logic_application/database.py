@@ -1,4 +1,4 @@
-from database import session, UserTg, Message, sa
+from database import session, UserTg, Message, Reveiw, Consultation, sa
 
 
 def push_database(data: dict) -> tuple:
@@ -14,7 +14,7 @@ def push_database(data: dict) -> tuple:
     return user.branch, user.status
 
 
-def create_user(**kwargs) -> bool:
+def create_user(**kwargs):
     """
     Creates a new user by params in kwargs
     :param kwargs: <dict> kwargs['user_id'] , kwargs['branch'] and all columns in the table usertg
@@ -27,10 +27,8 @@ def create_user(**kwargs) -> bool:
         session.commit()
         return user
     except sa.exc.IntegrityError as _er:
-        # print(f'Problem with `.commit()` or `.create()`. '
-        #       f'There can be errors with your rows. Exception description {_er}')
         session.rollback()
-        return None
+        return
 
 
 def update_user_state(**kwargs):
@@ -59,4 +57,30 @@ def create_message(user_id: str, **kwargs):
     user = UserTg.where(user_id=user_id).first()
     kwargs['usertg'] = user
     _msg = Message.create(**kwargs)
+    session.commit()
+
+
+def create_review(user_id: str, **kwargs):
+    """
+    Creates a new review by params in kwargs
+    :param user_id: <str> Telegram user_id
+    :param kwargs: <dict> kwargs with all columns in the table review
+    :return: None
+    """
+    user = UserTg.where(user_id=user_id).first()
+    kwargs['usertg'] = user
+    _msg = Reveiw.create(**kwargs)
+    session.commit()
+
+
+def create_consultation(user_id: str, **kwargs):
+    """
+    Creates a new consultation by params in kwargs
+    :param user_id: <str> Telegram user_id
+    :param kwargs: <dict> kwargs with all columns in the table consultation
+    :return: None
+    """
+    user = UserTg.where(user_id=user_id).first()
+    kwargs['usertg'] = user
+    _consultation = Consultation.create(**kwargs)
     session.commit()

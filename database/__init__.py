@@ -17,6 +17,7 @@ from database.models import *
 engine = load_engine(echo=False)
 session = scoped_session(sessionmaker(bind=engine))
 meta = sa.MetaData(bind=engine)
+# meta.create_all()
 
 Base.metadata.create_all(engine)
 BaseModel.set_session(session)
